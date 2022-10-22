@@ -1,0 +1,61 @@
+{
+  "config": {
+    "process-timeout": 2400,
+    "vendor-dir": "src/vendor/"
+  },
+  "require": {
+    "php": ">=7.3.0",
+    "doctrine/orm": "^2.6.2",
+    "slim/slim": "^3.12",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-mysqli": "*",
+    "psr/container": "^1.0",
+    "twig/twig": "^1.34",
+    "twig/extensions": "~1.5.1",
+    "vlucas/phpdotenv": "v3.5.0",
+    "gedmo/doctrine-extensions": "^2.4",
+    "php-di/php-di": "^6.0",
+    "php-amqplib/php-amqplib": "^2.11",
+    "squizlabs/php_codesniffer": "3.5.1",
+    "ext-pdo": "*",
+    "ext-sqlite3": "*"
+  },
+  "conflict": {
+    "phpseclib/phpseclib": "2.0.8",
+    "tecnickcom/tcpdf": "<6.2",
+    "pragmarx/google2fa": "<3.0.1",
+    "bacon/bacon-qr-code": "<1.0",
+    "samyoul/u2f-php-server": "<1.1"
+  },
+  "suggest": {
+    "ext-openssl": "Cookie encryption",
+    "ext-curl": "Updates checking",
+    "ext-opcache": "Better performance",
+    "ext-zlib": "For gz import and export",
+    "ext-bz2": "For bzip2 import and export",
+    "ext-zip": "For zip import and export",
+    "ext-gd2": "For image transformations",
+    "ext-mbstring": "For best performance",
+    "tecnickcom/tcpdf": "For PDF support",
+    "pragmarx/google2fa": "For 2FA authentication",
+    "bacon/bacon-qr-code": "For 2FA authentication",
+    "samyoul/u2f-php-server": "For FIDO U2F authentication"
+  },
+  "autoload": {
+    "psr-4": {
+      "HeadPages\\": "src/Modules/HeadPages/src/",
+      "DBConnection\\": "src/configs/DataBaseConnect/",
+      "Adapters\\": "src/Modules/Adapters",
+      "Test\\": "src/Modules/Test/src",
+      "Lab\\": "src/Modules/Lab/src",
+      "Praktic\\": "src/Modules/Praktick/src"
+    },
+  "scripts": {
+    "phpcs": "src/vendor/bin/phpcs --standard=PSR2",
+    "copyEnv": "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+    "post-update-cmd": "@copyEnv",
+    "post-install-cmd": "@copyEnv"
+  }
+}
+}
